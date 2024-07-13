@@ -5,7 +5,8 @@
     "type": "module",
     "main": "src",
     "scripts": {
-        "dev": "node --env-file=.env ."
+        "dev": "node --watch --env-file=.env .",
+        "start": "node --env-file=.env ."
     },
     "keywords": [],
     "author": "Abdellatif Dev",

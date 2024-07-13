@@ -1,18 +1,20 @@
 import { Client } from "tmi.js";
 
-const client = new Client({
+const opt = {
     identity: {
         username: process.env.TWITCH_USERNAME,
         password: process.env.TWITCH_TOKEN,
     },
     channels: [process.env.TWITCH_CHANNEL],
-});
+};
+
+const client = new Client(opt);
 
 client.connect();
 
 client.on("message", (channel, user, message, self) => {
-    if (self) return;
+    if (self || user.username === opt.identity.username) return;
     if (message == "hi") {
-        client.say(process.env.TWITCH_CHANNEL, `hello ${user["display-name"]}`);
+        client.say(opt.channels[0], `hello ${user["display-name"]}`);
     }
 });
