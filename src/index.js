@@ -11,6 +11,8 @@ const client = new Client({
 client.connect();
 
 client.on("message", (channel, user, message, self) => {
-    // "Alca: Hello, World!"
-    console.log(`${user["display-name"]}: ${message}`);
+    if (self) return;
+    if (message == "hi") {
+        client.say(process.env.TWITCH_CHANNEL, `hello ${user["display-name"]}`);
+    }
 });
