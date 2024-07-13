@@ -1,0 +1,16 @@
+{
+    "name": "devbot",
+    "version": "1.0.0",
+    "description": "a twitch chatbot for abdellatifdev",
+    "type": "module",
+    "main": "src",
+    "scripts": {
+        "dev": "node --env-file=.env ."
+    },
+    "keywords": [],
+    "author": "Abdellatif Dev",
+    "license": "MIT",
+    "dependencies": {
+        "tmi.js": "^1.8.5"
+    }
+}
