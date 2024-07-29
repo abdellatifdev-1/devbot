@@ -1,12 +1,6 @@
 import { Client } from "tmi.js";
-
-const opt = {
-    identity: {
-        username: process.env.TWITCH_USERNAME,
-        password: process.env.TWITCH_TOKEN,
-    },
-    channels: [process.env.TWITCH_CHANNEL],
-};
+import { opt } from "./constants.js";
+import { sendGreeting } from "./commands/viewers.js";
 
 const client = new Client(opt);
 
@@ -17,8 +11,8 @@ client.on("join", () => {
 });
 
 client.on("message", (channel, user, message, self) => {
-    // if (self || user.username === opt.identity.username) return;
-    if (message == "hi") {
-        client.say(opt.channels[0], `hello ${user["display-name"]}`);
+    if (self || user.username === opt.identity.username) {
+    } else {
+        sendGreeting(client, channel, message);
     }
 });
