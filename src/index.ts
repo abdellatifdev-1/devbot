@@ -12,7 +12,8 @@ client.on("join", () => {
 
 client.on("message", (channel, user, message, self) => {
     if (self || user.username === opt.identity!.username) {
+        return;
     } else {
-        sendGreeting(client, channel, message);
+        sendGreeting(client, channel, message, user);
     }
 });
