@@ -1,6 +1,6 @@
-import { Client } from "tmi.js";
+import { ChatUserstate, Client } from "tmi.js";
 import { opt } from "./constants";
-import { sendGreeting } from "./commands/viewers";
+import { commands } from "./commands/viewers";
 
 const client = new Client(opt);
 
@@ -10,10 +10,13 @@ client.on("join", () => {
     console.log("started successfully");
 });
 
-client.on("message", (channel, user, message, self) => {
-    if (self || user.username === opt.identity!.username) {
-        return;
-    } else {
-        sendGreeting(client, channel, message, user["display-name"] as string);
-    }
-});
+client.on(
+    "message",
+    (channel: string, user: ChatUserstate, message: string, self: boolean) => {
+        if (self || user.username === opt.identity!.username) {
+            return;
+        } else {
+            commands(client, channel, user, message);
+        }
+    },
+);

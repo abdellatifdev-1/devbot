@@ -1,7 +1,7 @@
-import { Client } from "tmi.js";
+import { ChatUserstate, Client } from "tmi.js";
 import { greetings } from "../constants";
 
-export function sendGreeting(
+function sendGreeting(
     client: Client,
     channel: string,
     message: string,
@@ -10,4 +10,13 @@ export function sendGreeting(
     if (greetings.includes(message.toLowerCase())) {
         client.say(channel, `hello ${displayName}`);
     }
+}
+
+export function commands(
+    client: Client,
+    channel: string,
+    user: ChatUserstate,
+    message: string,
+) {
+    sendGreeting(client, channel, message, user["display-name"] as string);
 }
