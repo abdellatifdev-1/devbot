@@ -1,13 +1,10 @@
-/**
- * @type {{ identity: { username: string, password: string, }, channels: string[] }}
- *
- */
-export const opt = {
+import { Options } from "tmi.js";
+export const opt: Options = {
     identity: {
-        username: process.env.TWITCH_USERNAME,
-        password: process.env.TWITCH_TOKEN,
+        username: process.env.TWITCH_USERNAME as string,
+        password: process.env.TWITCH_TOKEN as string,
     },
-    channels: [process.env.TWITCH_CHANNEL],
+    channels: [process.env.TWITCH_CHANNEL as string],
 };
 
 export const greetings = [

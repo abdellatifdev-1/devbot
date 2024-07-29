@@ -13,5 +13,11 @@
     "license": "MIT",
     "dependencies": {
         "tmi.js": "^1.8.5"
+    },
+    "devDependencies": {
+        "@types/node": "^22.0.0",
+        "@types/tmi.js": "^1.8.6",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.5.4"
     }
 }

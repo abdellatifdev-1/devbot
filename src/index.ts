@@ -1,6 +1,6 @@
 import { Client } from "tmi.js";
-import { opt } from "./constants.js";
-import { sendGreeting } from "./commands/viewers.js";
+import { opt } from "./constants";
+import { sendGreeting } from "./commands/viewers";
 
 const client = new Client(opt);
 
@@ -11,7 +11,7 @@ client.on("join", () => {
 });
 
 client.on("message", (channel, user, message, self) => {
-    if (self || user.username === opt.identity.username) {
+    if (self || user.username === opt.identity!.username) {
     } else {
         sendGreeting(client, channel, message);
     }
