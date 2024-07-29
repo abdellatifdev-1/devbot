@@ -12,8 +12,12 @@ const client = new Client(opt);
 
 client.connect();
 
+client.on("join", () => {
+    console.log("starting the bot..");
+});
+
 client.on("message", (channel, user, message, self) => {
-    if (self || user.username === opt.identity.username) return;
+    // if (self || user.username === opt.identity.username) return;
     if (message == "hi") {
         client.say(opt.channels[0], `hello ${user["display-name"]}`);
     }
