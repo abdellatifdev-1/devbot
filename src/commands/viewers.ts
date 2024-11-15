@@ -1,5 +1,21 @@
 import { ChatUserstate, Client } from "tmi.js";
-import { greetings } from "../constants";
+
+export const greetings = [
+    "hello",
+    "hi",
+    "hey",
+    "greetings",
+    "salutations",
+    "howdy",
+    "good day",
+    "good morning",
+    "good afternoon",
+    "good evening",
+    "what's up",
+    "how's it going",
+    "hey there",
+    "yo",
+];
 
 function sendGreeting(
     client: Client,

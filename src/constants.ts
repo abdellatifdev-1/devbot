@@ -11,19 +11,3 @@ export const opt: Options = {
     channels: [process.env.TWITCH_CHANNEL as string],
 };
 
-export const greetings = [
-    "hello",
-    "hi",
-    "hey",
-    "greetings",
-    "salutations",
-    "howdy",
-    "good day",
-    "good morning",
-    "good afternoon",
-    "good evening",
-    "what's up",
-    "how's it going",
-    "hey there",
-    "yo",
-];
